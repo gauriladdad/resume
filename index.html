@@ -1,25 +1,506 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Gauri Gattani — Resume</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gauri Gattani — Staff Software Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --accent: #2563eb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Arial, sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .container {
+        max-width: 880px;
+        margin: 48px auto;
+        padding: 32px 28px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+        transition: box-shadow 0.2s ease, transform 0.15s ease;
+      }
+
+      .container:hover {
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.08);
+      }
+
+      .skill-group {
+        margin-bottom: 14px;
+      }
+
+      .skill-group h3 {
+        margin: 10px 0 6px;
+        font-size: 0.95rem;
+        color: #374151;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tags span {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f5f9;
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+
+      h1 {
+        margin: 0;
+        letter-spacing: 0.2px;
+      }
+
+      .subtitle {
+        margin-top: 4px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        margin: 10px 0 18px;
+        color: var(--muted);
+      }
+
+      .contact-info a,
+      .contact-info span {
+        display: flex;
+        align-items: center;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-info i {
+        margin-right: 6px;
+        color: #9ca3af;
+      }
+
+      .certification h2 {
+        margin-bottom: 10px;
+      }
+
+      .cert-card {
+        padding: 10px 14px;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: 10px;
+        background: #f9fbff;
+      }
+
+      .cert-icon {
+        margin-right: 6px;
+        font-size: 0.9rem;
+      }
+
+      .cert-meta {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 3px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        margin-right: 6px;
+        border-radius: 999px;
+        background: #eef2ff;
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      .section {
+        margin-top: 30px;
+      }
+
+      .section h2 {
+        margin-bottom: 14px;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .job {
+        padding: 14px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        margin-bottom: 14px;
+        background: #fafafa;
+      }
+
+      .job-title {
+        font-weight: 700;
+      }
+
+      .job-meta {
+        color: var(--muted);
+        font-size: 0.87rem;
+        margin-bottom: 6px;
+      }
+
+      ul {
+        padding-left: 18px;
+      }
+
+      .download {
+        text-align: right;
+      }
+
+      .download a,
+      .download a:visited {
+        background: var(--accent);
+        color: white;
+        padding: 9px 14px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        transition: background 0.15s ease, transform 0.1s ease;
+      }
+
+      .download a:hover {
+        background: #1e40af;
+        transform: translateY(-1px);
+      }
+
+      footer {
+        text-align: center;
+        color: #9ca3af;
+        margin-top: 32px;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          margin: 16px;
+          padding: 22px 18px;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .download {
+          width: 100%;
+          text-align: left; /* or right if you prefer */
+        }
+
+        .download a {
+          display: inline-block;
+        }
+      }
+
+      /* ---------- PRINT VERSION ---------- */
+      @media print {
+        body,
+        html {
+          background: white !important;
+        }
+
+        * {
+          box-shadow: none !important;
+          background-image: none !important;
+        }
+
+        .section {
+          page-break-inside: avoid;
+        }
+
+        .job {
+          page-break-inside: avoid;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+
+        footer {
+          page-break-after: avoid;
+        }
+
+        .container {
+          background: white !important;
+          box-shadow: none;
+          border-radius: 0;
+          margin: 0;
+          padding: 12px 24px;
+        }
+
+        .download {
+          display: none; /* hide button on print */
+        }
+
+        footer {
+          margin-top: 10px;
+        }
+
+        .job {
+          background: white;
+          border: 1px solid #ddd;
+        }
+
+        /* Fit more on a single page cleanly */
+        .section {
+          margin-top: 18px;
+        }
+
+        h1 {
+          margin-bottom: 4px;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Gauri Gattani</h1>
-    <p>Staff Software Engineer — APIs & Front-end Architecture</p>
+    <div class="container">
+      <div class="header">
+        <div>
+          <h1>Gauri Gattani</h1>
+          <p class="subtitle">
+            Staff Software Engineer — APIs & Front-End Architecture
+          </p>
 
-    <p><strong>Location:</strong> Mississauga, ON</p>
-    <p><strong>Email:</strong> gaurisoft@gmail.com</p>
+          <div>
+            <span class="badge">React</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">API Design</span>
+            <span class="badge">Architecture</span>
+            <span class="badge">Testing</span>
+          </div>
 
-    <hr />
+          <div class="contact-info">
+            <a href="mailto:gauri@gattani.ca">
+              <i class="fas fa-envelope"></i>
+              gauri@gattani.ca
+            </a>
 
-    <h2>Professional Summary</h2>
-    <p>
-      Staff Software Engineer and full-stack technical leader specializing in
-      scalable APIs and high-performance UI architecture…
-    </p>
+            <a href="https://linkedin.com/in/uigauri" target="_blank">
+              <i class="fab fa-linkedin"></i>
+              linkedin.com/in/uigauri
+            </a>
 
-    <!-- rest later -->
+            <span class="location">
+              <i class="fas fa-map-marker-alt"></i>
+              Toronto, ON
+            </span>
+          </div>
+        </div>
+
+        <div class="download">
+          <a href="#" onclick="window.print(); return false;">Download PDF</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Professional Summary</h2>
+        <p>
+          Staff Software Engineer and full-stack technical leader specializing
+          in scalable APIs and high-performance UI architecture. Lead front-end
+          strategy and own end-to-end feature delivery across React and Java
+          services, improving developer workflows, mentoring engineers, and
+          aligning architecture decisions with business goals.
+        </p>
+      </div>
+
+      <div class="section certification">
+        <h2>Certification</h2>
+
+        <div class="cert-card">
+          <span class="cert-icon">🟧</span>
+          <strong>AWS Certified Developer — Associate</strong>
+          <div class="cert-meta">Amazon Web Services</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Key Skills</h2>
+
+        <div class="skill-group">
+          <h3>Front-End & UI Engineering</h3>
+          <div class="skill-tags">
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>Vite</span>
+            <span>HTML/CSS</span>
+            <span>State Management (Redux, React Query)</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>API & Backend Integration</h3>
+          <div class="skill-tags">
+            <span>Java</span>
+            <span>REST APIs</span>
+            <span>GraphQL</span>
+            <span>OpenAPI (OAS3)</span>
+            <span>SDK Design</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Architecture & Leadership</h3>
+          <div class="skill-tags">
+            <span>System Design</span>
+            <span>Technical Mentorship</span>
+            <span>Cross-Team Collaboration</span>
+            <span>Feature Ownership</span>
+            <span>Developer Workflow Improvements</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Testing & Quality</h3>
+          <div class="skill-tags">
+            <span>React Testing Library</span>
+            <span>Vitest</span>
+            <span>Selenium</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Experience</h2>
+
+        <div class="job">
+          <div class="job-title">Staff Software Engineer — Okta</div>
+          <div class="job-meta">Sep 2021 – Present</div>
+          <ul>
+            <li>
+              Owned end-to-end delivery of complex features, authoring API +
+              data model designs and driving full-stack implementations.
+            </li>
+            <li>
+              Led UI architecture across multiple projects, improving
+              predictability and integration with backend teams.
+            </li>
+            <li>
+              Designed and shipped key API enhancements, expanding capabilities
+              and reducing integration friction.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-title">Senior Software Engineer — Narvar</div>
+          <div class="job-meta">Mar 2021 – Jun 2021</div>
+          <ul>
+            <li>
+              Designed and implemented a secure public-key sharing solution with
+              strong authentication and reliability.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-title">
+            Senior Software Engineer — Samsung Next, Canada
+          </div>
+          <div class="job-meta">Mar 2020 – Mar 2021</div>
+          <ul>
+            <li>
+              Architected and developed a fitness + IoT integration app for
+              Samsung Tizen TV, improving playback performance and navigation.
+            </li>
+            <li>
+              Collaborated closely with product teams to define requirements and
+              optimize packaging and distribution for Tizen TV applications.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-title">
+            Senior Software Engineer — Deltatre (Canada & UK)
+          </div>
+          <div class="job-meta">May 2015 – Mar 2020</div>
+          <ul>
+            <li>
+              Architected and developed CraveTV streaming app using React/TS and
+              Haxe, delivering seamless playback across Samsung Tizen, Fire TV,
+              and Xbox.
+            </li>
+            <li>
+              Mentored a distributed team of 3–4 engineers, establishing best
+              practices and raising code quality.
+            </li>
+            <li>
+              Integrated and optimized analytics tools, improving performance
+              monitoring and user engagement insights.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-title">
+            Senior Software Engineer — SAS R&D India Pvt. Ltd.
+          </div>
+          <div class="job-meta">May 2009 – Apr 2015</div>
+          <ul>
+            <li>
+              Developed web applications using Flex and Java, collaborating with
+              design and product to build customer-focused solutions.
+            </li>
+            <li>
+              Defined reusable UI components and best practices, improving
+              development consistency and speed.
+            </li>
+            <li>
+              Implemented server-side push for real-time UI updates, reducing
+              server load and improving responsiveness.
+            </li>
+          </ul>
+        </div>
+
+        <!-- (We will continue filling out the rest of your roles next) -->
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <p>
+          <strong>BE Computer Science</strong> — M.E.S College of Engineering,
+          Pune (First Class with Distinction)
+        </p>
+      </div>
+
+      <footer>© Gauri Gattani</footer>
+    </div>
   </body>
 </html>
