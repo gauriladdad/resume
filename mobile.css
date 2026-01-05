@@ -1,0 +1,71 @@
+@media (max-width: 640px) {
+  .container {
+    margin: 16px;
+    padding: 22px 18px;
+  }
+  .badge-row {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    gap: 6px 8px;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: #eef3ff;
+    color: #2b55d6;
+    white-space: nowrap;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  footer .download a {
+    align-self: flex-start;
+  }
+
+  .contact-footer {
+    display: flex;
+    flex-direction: row; /* ⬅️ keep in one line */
+    align-items: center;
+    justify-content: center; /* ⬅️ centered look like screenshot */
+    gap: 10px;
+    flex-wrap: wrap; /* ⬅️ only wrap if truly needed */
+    text-align: center;
+  }
+
+  .contact-footer a,
+  .contact-footer span {
+    font-size: 0.85rem;
+    white-space: nowrap; /* ⬅️ prevents breaking inside item */
+  }
+
+  .footer-meta {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-meta a {
+    width: auto;
+  }
+}

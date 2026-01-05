@@ -1,0 +1,66 @@
+/* ---------- PRINT VERSION ---------- */
+@media print {
+  body,
+  html {
+    background: white !important;
+  }
+
+  * {
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  .job {
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    page-break-after: avoid;
+  }
+
+  footer {
+    page-break-after: avoid;
+  }
+
+  .container {
+    background: white !important;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 12px 24px;
+  }
+
+  .download {
+    display: none; /* hide button on print */
+  }
+
+  footer {
+    margin-top: 10px;
+  }
+
+  .job {
+    background: white;
+    border: 1px solid #ddd;
+  }
+
+  /* Fit more on a single page cleanly */
+  .section {
+    margin-top: 18px;
+  }
+
+  h1 {
+    margin-bottom: 4px;
+  }
+
+  footer .download {
+    display: none;
+  }
+
+  .footer-meta a {
+    display: none;
+  }
+}
