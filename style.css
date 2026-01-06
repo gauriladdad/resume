@@ -221,3 +221,27 @@ footer .wrapper {
 .footer-meta a:hover {
   background: #e5e7eb;
 }
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: #f9fafb;
+}
+
+.project-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 3px 0 6px;
+}
+
+.project-card a {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
