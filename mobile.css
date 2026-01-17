@@ -3,6 +3,7 @@
     margin: 16px;
     padding: 22px 18px;
   }
+
   .badge-row {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -14,8 +15,8 @@
     font-size: 0.75rem;
     padding: 4px 8px;
     border-radius: 12px;
-    background: #eef3ff;
-    color: #2b55d6;
+    background: var(--badge-bg);
+    color: var(--badge-text);
     white-space: nowrap;
   }
 
@@ -43,18 +44,22 @@
 
   .contact-footer {
     display: flex;
-    flex-direction: row; /* ⬅️ keep in one line */
+    flex-direction: row;
+    /* ⬅️ keep in one line */
     align-items: center;
-    justify-content: center; /* ⬅️ centered look like screenshot */
+    justify-content: center;
+    /* ⬅️ centered look like screenshot */
     gap: 10px;
-    flex-wrap: wrap; /* ⬅️ only wrap if truly needed */
+    flex-wrap: wrap;
+    /* ⬅️ only wrap if truly needed */
     text-align: center;
   }
 
   .contact-footer a,
   .contact-footer span {
     font-size: 0.85rem;
-    white-space: nowrap; /* ⬅️ prevents breaking inside item */
+    white-space: nowrap;
+    /* ⬅️ prevents breaking inside item */
   }
 
   .footer-meta {
@@ -78,8 +83,21 @@
     text-align: center;
     padding: 4px 4px;
     border-radius: 999px;
-    background: #f3f4f6;
-    border: 1px solid #e5e7eb;
+    background: var(--chip-bg);
+    border: 1px solid var(--chip-border);
     font-size: 0.85rem;
+  }
+
+  .resume-content {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 8px;
   }
 }

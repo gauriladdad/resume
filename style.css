@@ -4,6 +4,46 @@
   --muted: #6b7280;
   --border: #e5e7eb;
   --accent: #2563eb;
+  --card-bg: #ffffff;
+  --card-hover-shadow: rgba(0, 0, 0, 0.08);
+  --chip-bg: #f3f4f6;
+  --chip-border: #e5e7eb;
+  --skill-tag-bg: #f1f5f9;
+  --cert-bg: #f9fbff;
+  --job-bg: #fafafa;
+  --badge-bg: #eef3ff;
+  --badge-text: #2b55d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --text: #f9fafb;
+    --muted: #9ca3af;
+    --border: #374151;
+    --accent: #60a5fa;
+    --card-bg: #1f2937;
+    --card-hover-shadow: rgba(0, 0, 0, 0.3);
+    --chip-bg: #374151;
+    --chip-border: #4b5563;
+    --skill-tag-bg: #1f2937;
+    --cert-bg: #1f2937;
+    --job-bg: #1f2937;
+    --badge-bg: #1e3a8a;
+    --badge-text: #93c5fd;
+  }
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 * {
@@ -17,11 +57,12 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .positioning {
   margin: 4px 0 8px;
-  color: #4b5563;
+  color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.4;
 }
@@ -38,14 +79,15 @@ body {
   max-width: 880px;
   margin: 48px auto;
   padding: 32px 28px;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  transition: box-shadow 0.2s ease, transform 0.15s ease, background-color 0.3s ease;
+  animation: fadeInSlideUp 0.6s ease-out forwards;
 }
 
 .container:hover {
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 22px 55px var(--card-hover-shadow);
 }
 
 .soft-chips {
@@ -60,13 +102,14 @@ body {
   text-align: center;
   padding: 4px 14px;
   border-radius: 999px;
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
   font-size: 0.85rem;
 }
 
 .soft-chips span:hover {
-  background: #e6e9ef;
+  background: var(--border);
+  /* subtly darker than chip-bg */
 }
 
 .skill-group {
@@ -76,7 +119,7 @@ body {
 .skill-group h3 {
   margin: 10px 0 6px;
   font-size: 0.95rem;
-  color: #374151;
+  color: var(--text);
 }
 
 .skill-tags {
@@ -88,8 +131,8 @@ body {
 .skill-tags span {
   display: inline-block;
   padding: 6px 10px;
-  background: #f1f5f9;
-  border: 1px solid #e5e7eb;
+  background: var(--skill-tag-bg);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.85rem;
 }
@@ -114,7 +157,7 @@ h1 {
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
   border-radius: 10px;
-  background: #f9fbff;
+  background: var(--cert-bg);
 }
 
 .cert-icon {
@@ -130,6 +173,28 @@ h1 {
 
 .section {
   margin-top: 30px;
+  opacity: 0;
+  animation: fadeInSlideUp 0.6s ease-out forwards;
+}
+
+.section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.section:nth-child(5) {
+  animation-delay: 0.5s;
 }
 
 .section h2 {
@@ -143,7 +208,7 @@ h1 {
   border-radius: 12px;
   border: 1px solid var(--border);
   margin-bottom: 14px;
-  background: #fafafa;
+  background: var(--job-bg);
 }
 
 .job-title {
@@ -175,8 +240,8 @@ footer .wrapper {
   flex-wrap: wrap;
   gap: 14px 22px;
   padding: 12px 0 14px;
-  border-top: 1px solid #e5e7eb;
-  color: #4b5563;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -185,7 +250,7 @@ footer .wrapper {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #374151;
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -194,7 +259,7 @@ footer .wrapper {
 }
 
 .contact-footer i {
-  color: #9ca3af;
+  color: var(--muted);
 }
 
 .footer-meta {
@@ -203,15 +268,15 @@ footer .wrapper {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--muted);
 }
 
 .footer-meta a {
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
   padding: 6px 10px;
   border-radius: 8px;
-  color: #374151;
+  color: var(--text);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -219,7 +284,7 @@ footer .wrapper {
 }
 
 .footer-meta a:hover {
-  background: #e5e7eb;
+  background: var(--border);
 }
 
 .project-card {
@@ -227,7 +292,7 @@ footer .wrapper {
   border-radius: 10px;
   padding: 12px 14px;
   margin-bottom: 12px;
-  background: #f9fafb;
+  background: var(--job-bg);
 }
 
 .project-meta {
@@ -244,4 +309,90 @@ footer .wrapper {
 
 .project-card a:hover {
   text-decoration: underline;
+}
+
+/* Sidebar Layout */
+.resume-content {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  flex: 0 0 260px;
+  /* Fixed width sidebar */
+  font-size: 0.9rem;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  /* Prevent flex overflow */
+}
+
+/* Sidebar Specifics */
+.contact-section {
+  margin-bottom: 32px;
+}
+
+.contact-section h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-links a,
+.contact-links span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.contact-links i {
+  color: var(--muted);
+  width: 16px;
+  text-align: center;
+}
+
+/* Adjust Section Headers in Sidebar */
+.sidebar .section {
+  margin-top: 32px;
+}
+
+.sidebar h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+}
+
+.sidebar .skill-group h3 {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Main Content Adjustments */
+.main-content .header {
+  margin-bottom: 32px;
+}
+
+.main-content .section:first-child {
+  margin-top: 0;
 }
