@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gauri Gattani — Resume</title>
+    <style>
+      /* 
+           ATS & AI-Friendly Layout Blueprint
+           - Single column layout (never uses tables or side-by-side grids)
+           - Standard font stacks that automated systems recognize instantly
+        */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #222222;
+        line-height: 1.35;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+      }
+      .resume-container {
+        width: 8.5in;
+        min-height: 11in;
+        margin: 0 auto;
+        padding: 0.45in 0.55in;
+        box-sizing: border-box;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      h1 {
+        margin: 0 0 4px 0;
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #111111;
+      }
+      .contact-info {
+        font-size: 11px;
+        color: #444444;
+      }
+      .contact-info a {
+        color: #444444;
+        text-decoration: none;
+      }
+      h2 {
+        font-size: 12.5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 12px 0 4px 0;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #222222;
+        color: #111111;
+      }
+      p {
+        margin: 0 0 6px 0;
+        font-size: 11px;
+        color: #333333;
+      }
+      .skills-section p {
+        margin-bottom: 4px;
+      }
+      .job-entry {
+        margin-bottom: 10px;
+      }
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 11.5px;
+        color: #111111;
+        margin-bottom: 2px;
+      }
+      .job-sub {
+        display: flex;
+        justify-content: space-between;
+        font-style: italic;
+        font-size: 10.5px;
+        color: #555555;
+        margin-bottom: 3px;
+      }
+      ul {
+        margin: 0 0 4px 0;
+        padding-left: 18px;
+      }
+      li {
+        margin-bottom: 2px;
+        font-size: 11px;
+        color: #333333;
+      }
+      .edu-cert-entry {
+        margin-bottom: 6px;
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+      @media print {
+        body {
+          background: #ffffff;
+        }
+        .resume-container {
+          margin: 0;
+          box-shadow: none;
+          padding: 0.45in 0.55in;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <!-- HEADER -->
+      <header>
+        <h1>Gauri Gattani</h1>
+        <div class="contact-info">
+          Mississauga, ON | 647-641-2967 |
+          <a href="mailto:gauri@gattani.ca">gauri@gattani.ca</a> |
+          linkedin.com/in/uigauri
+        </div>
+      </header>
+
+      <!-- PROFESSIONAL SUMMARY -->
+      <section>
+        <h2>Professional Summary</h2>
+        <p>
+          Staff Software Engineer and full-stack technical leader with over 14
+          years of experience specializing in highly scalable API design,
+          distributed UI architecture, and engineering governance across
+          enterprise systems. Adept at managing full-lifecycle feature delivery
+          across React and Java ecosystems, executing contract-first development
+          architectures, and defining technical roadmaps that align developer
+          workflows with high-level business goals.
+        </p>
+      </section>
+
+      <!-- CRISP SKILLS -->
+      <section class="skills-section">
+        <h2>Core Competencies</h2>
+        <p>
+          <strong>Architecture & Governance:</strong> Distributed UI Systems,
+          Technical Governance, Monorepos, Design Systems, DevEx Automation
+        </p>
+        <p>
+          <strong>Full-Stack & API Engineering:</strong> Java Backends, REST
+          APIs, GraphQL, OpenAPI (OAS3), SDK Design, React/TypeScript Platforms
+        </p>
+        <p>
+          <strong>Testing & Platform Scale:</strong> Contract-first Testing
+          Pipelines, Playwright, Vitest, Performance Profiling
+        </p>
+      </section>
+
+      <!-- WORK HISTORY -->
+      <section>
+        <h2>Work History</h2>
+
+        <!-- OKTA -->
+        <div class="job-entry">
+          <div class="job-header">
+            <span>Staff Software Engineer (Group UI Lead)</span>
+            <span>Sep 2021 – Current</span>
+          </div>
+          <div class="job-sub">
+            <span>Okta — Canada</span>
+            <span>Hybrid / Remote</span>
+          </div>
+          <ul>
+            <li>
+              Own end-to-end delivery of business-critical features, authoring
+              comprehensive technical designs (APIs and data models) while
+              executing full-stack implementation to production.
+            </li>
+            <li>
+              Direct UI governance across 5 parallel engineering tracks,
+              reviewing UX specifications, coordinating client-server
+              integration with backend teams, and improving delivery
+              predictability.
+            </li>
+            <li>
+              Designed and shipped foundational API enhancements, extending
+              existing endpoints and updating OAS3 specifications to minimize
+              runtime integration friction.
+            </li>
+            <li>
+              Accelerated enterprise developer velocity by introducing automated
+              testing infrastructures and mentoring senior engineers into Staff
+              tracks.
+            </li>
+          </ul>
+        </div>
+
+        <!-- NARVAR -->
+        <div class="job-entry">
+          <div class="job-header">
+            <span>Senior Software Engineer</span>
+            <span>Mar 2021 – Jun 2021</span>
+          </div>
+          <div class="job-sub">
+            <span>Narvar — Canada</span>
+            <span>Remote</span>
+          </div>
+          <ul>
+            <li>
+              Designed and deployed a fault-tolerant public key sharing
+              solution, establishing secure two-legged authentication paradigms
+              to protect critical client data transactions.
+            </li>
+          </ul>
+        </div>
+
+        <!-- SAMSUNG NEXT -->
+        <div class="job-entry">
+          <div class="job-header">
+            <span>Senior Software Engineer</span>
+            <span>Mar 2020 – Mar 2021</span>
+          </div>
+          <div class="job-sub">
+            <span>Samsung Next — Canada</span>
+            <span>Toronto, ON</span>
+          </div>
+          <ul>
+            <li>
+              Architected and engineered an integrated fitness and IoT
+              application layer for Samsung Tizen TV, dramatically optimizing
+              low-power hardware media playback, navigation mechanics, and
+              device casting.
+            </li>
+            <li>
+              Led cross-functional alignment with Product management to define
+              strict system requirements and automate runtime packaging
+              configuration models across smart TV environments.
+            </li>
+          </ul>
+        </div>
+
+        <!-- DELTATRE -->
+        <div class="job-entry">
+          <div class="job-header">
+            <span>Senior Software Engineer</span>
+            <span>May 2015 – Mar 2020</span>
+          </div>
+          <div class="job-sub">
+            <span>Deltatre — Canada & UK</span>
+            <span>London / Toronto</span>
+          </div>
+          <ul>
+            <li>
+              Architected core components of premium OTT streaming ecosystems
+              (CraveTV) using React, TypeScript, and Haxe to unify playback
+              synchronization across Tizen TV, Fire TV, and Xbox platforms.
+            </li>
+            <li>
+              Managed and mentored a global engineering track of 4 developers,
+              institutionalizing modern code health standards, review practices,
+              and robust state-management patterns.
+            </li>
+            <li>
+              Integrated telemetry instrumentation setups to analyze user
+              engagement bottlenecks and optimize client rendering efficiency.
+            </li>
+          </ul>
+        </div>
+
+        <!-- SAS -->
+        <div class="job-entry">
+          <div class="job-header">
+            <span>Senior Software Engineer</span>
+            <span>May 2009 – Apr 2015</span>
+          </div>
+          <div class="job-sub">
+            <span>SAS R&D India Pvt. Ltd.</span>
+            <span>Pune, India</span>
+          </div>
+          <ul>
+            <li>
+              Developed enterprise web applications using Flex and Java
+              backend-for-frontend architectures, transforming design components
+              into reliable product features.
+            </li>
+            <li>
+              Established a company-wide library of reusable UI components,
+              enforcing modular asset practices to boost team engineering
+              velocity.
+            </li>
+            <li>
+              Engineered real-time server-side push pipelines for dynamic UI
+              dashboard visualizations, removing expensive system polling
+              overhead.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION & CERTIFICATIONS -->
+      <section>
+        <h2>Education & Certifications</h2>
+
+        <div class="edu-cert-entry">
+          <div class="job-header">
+            <span>AWS Certified Developer — Associate</span>
+            <span>Amazon Web Services</span>
+          </div>
+        </div>
+
+        <div class="edu-cert-entry">
+          <div class="job-header">
+            <span>BE Computer Science (First Class with Distinction)</span>
+            <span>M.E.S College of Engineering — Pune, India</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
+
+```
