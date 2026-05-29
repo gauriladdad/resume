@@ -5,17 +5,30 @@
     <title>Gauri Gattani — Resume</title>
     <style>
       /*
-           ATS & AI-Friendly Layout Blueprint with Sophisticated Palette
-           - Single column structure for flawless automated parsing.
-           - Bounded header structure matching original branding styles exactly.
-        */
+          ATS & AI-Friendly Layout Blueprint - Premium Slate & Indigo Minimalist
+          - Single column structure for flawless automated parsing.
+          - Retains all exact original margins, padding, and layout spacing.
+          - Enhances visual identity using cohesive, high-end technical color tokens.
+      */
+      html,
       body {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #2d3748;
-        line-height: 1.35;
         margin: 0;
         padding: 0;
         background-color: #ffffff;
+      }
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        color: #334155;
+        line-height: 1.35;
+        -webkit-font-smoothing: antialiased;
       }
       section {
         padding-top: 5px;
@@ -24,50 +37,68 @@
         width: 8.5in;
         min-height: 11in;
         margin: 0 auto;
-        /* Optimized padding to guarantee everything sits on a single page */
         padding: 0.35in 0.65in;
         box-sizing: border-box;
+        background-color: #ffffff;
       }
       header {
         text-align: right;
-        margin-bottom: 12px;
       }
       h1 {
-        margin: 0 0 6px 0;
-        font-size: 24px;
+        margin: 0 0 4px 0;
+        font-size: 26px;
+        font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 1.5px;
-        color: #000000;
+        color: #1e3a8a; /* Deep Corporate Indigo */
       }
       .contact-bar {
-        background-color: #000000;
-        color: #ffffff;
-        padding: 6px 12px;
+        color: #64748b;
         font-size: 11px;
         font-weight: 500;
         text-align: right;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
+      }
+      .contact-bar span {
+        color: #2563eb; /* Vibrant Accent Blue */
+        font-weight: 600;
       }
       .contact-bar a {
-        color: #ffffff;
+        color: #334155;
         text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      .contact-bar a:hover {
+        color: #2563eb;
+        border-bottom-color: #2563eb;
       }
       h2 {
         font-size: 12px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        margin: 10px 0 4px 0;
-        padding-bottom: 2px;
-        border-bottom: 1px solid #cbd5e1;
-        color: #1e293b;
+        letter-spacing: 1.2px;
+        margin: 10px 0 6px 0;
+        padding-bottom: 3px;
+        border-bottom: 2px solid #3b82f6; /* Modern Vibrant Blue Accent Line */
+        color: #0f172a;
       }
       p {
         margin: 0 0 12px 0;
         font-size: 11px;
-        color: #334155;
+        color: #475569;
       }
+
       .skills-section p {
         margin-bottom: 4px;
+        color: #334155;
+      }
+      .skills-section p:last-child {
+        margin-bottom: 0;
+      }
+      .skills-section strong {
+        color: #0f172a;
+        font-weight: 600;
       }
       .job-entry {
         margin-bottom: 10px;
@@ -75,33 +106,51 @@
       .job-header {
         display: flex;
         justify-content: space-between;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 11.5px;
         color: #0f172a;
         margin-bottom: 2px;
       }
       .job-header span:first-child {
-        color: #1e293b;
+        color: #1e3a8a; /* Prominent color for job titles */
+      }
+      .job-header span:last-child {
+        color: #475569;
       }
       .job-sub {
         display: flex;
         justify-content: space-between;
         font-style: italic;
         font-size: 10.5px;
-        color: #64748b;
+        color: #475569;
         margin-bottom: 3px;
+      }
+      .job-sub span:first-child {
+        font-weight: 500;
+        color: #334155;
+      }
+      .job-sub span:last-child {
+        text-transform: uppercase;
+        font-size: 9.5px;
+        font-style: normal;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        color: #64748b; /* Classy slate metadata tag */
       }
       ul {
         margin: 0 0 4px 0;
-        padding-left: 18px;
+        padding-left: 16px;
       }
       li {
-        margin-bottom: 2px;
+        margin-bottom: 3px;
         font-size: 11px;
-        color: #334155;
+        color: #475569;
       }
       .edu-cert-entry {
         margin-bottom: 6px;
+      }
+      .edu-cert-entry .job-header span:first-child {
+        color: #0f172a;
       }
 
       @page {
@@ -109,17 +158,18 @@
         margin: 0;
       }
       @media print {
+        html,
         body {
           background: #ffffff;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
         .resume-container {
           margin: 0;
           box-shadow: none;
         }
-        .contact-bar {
-          background-color: #000000 !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
+        h2 {
+          border-bottom: 2px solid #3b82f6 !important;
         }
       }
     </style>
@@ -130,8 +180,10 @@
       <header>
         <h1>Gauri Gattani</h1>
         <div class="contact-bar">
-          Mississauga, ON | 647-641-2967 |
-          <a href="mailto:gauri@gattani.ca">gauri@gattani.ca</a> |
+          <span>Location</span> Mississauga, ON &nbsp;•&nbsp;
+          <span>Phone</span> 647-641-2967 &nbsp;•&nbsp; <span>Email</span>
+          <a href="mailto:gauri@gattani.ca">gauri@gattani.ca</a> &nbsp;•&nbsp;
+          <span>LinkedIn</span>
           <a href="https://linkedin.com/in/uigauri">linkedin.com/in/uigauri</a>
         </div>
       </header>
@@ -179,8 +231,8 @@
             <span>Sep 2021 – Current</span>
           </div>
           <div class="job-sub">
-            <span>Okta — Canada</span>
-            <span>Hybrid / Remote</span>
+            <span>Okta</span>
+            <span>Canada / Remote</span>
           </div>
           <ul>
             <li>
@@ -214,8 +266,8 @@
             <span>Mar 2021 – Jun 2021</span>
           </div>
           <div class="job-sub">
-            <span>Narvar — Canada</span>
-            <span>Remote</span>
+            <span>Narvar</span>
+            <span>Canada / Remote</span>
           </div>
           <ul>
             <li>
@@ -233,7 +285,7 @@
             <span>Mar 2020 – Mar 2021</span>
           </div>
           <div class="job-sub">
-            <span>Samsung Next — Canada</span>
+            <span>Samsung Next</span>
             <span>Toronto, ON</span>
           </div>
           <ul>
@@ -258,7 +310,7 @@
             <span>May 2015 – Mar 2020</span>
           </div>
           <div class="job-sub">
-            <span>Deltatre — Canada & UK</span>
+            <span>Deltatre</span>
             <span>London / Toronto</span>
           </div>
           <ul>
