@@ -4,98 +4,110 @@
     <meta charset="UTF-8" />
     <title>Gauri Gattani — Resume</title>
     <style>
-      /* 
-           ATS & AI-Friendly Layout Blueprint
-           - Built-in safe margins to handle "0 inch" or "Custom" browser print overrides.
+      /*
+           ATS & AI-Friendly Layout Blueprint with Sophisticated Palette
            - Single column structure for flawless automated parsing.
+           - Elegant bounded header structure matching original branding styles.
         */
       body {
         font-family: Arial, Helvetica, sans-serif;
-        color: #222222;
-        line-height: 1.4;
+        color: #2d3748;
+        line-height: 1.35;
         margin: 0;
         padding: 0;
         background-color: #ffffff;
+      }
+      section {
+        padding-top: 5px;
       }
       .resume-container {
         width: 8.5in;
         min-height: 11in;
         margin: 0 auto;
-        /* Explicitly enforces elegant spacing even if browser print margins are set to 0 */
-        padding: 0.3in;
+        /* Optimized padding to guarantee everything sits on a single page */
+        padding: 0.35in 0.65in;
         box-sizing: border-box;
       }
       header {
         text-align: center;
-        margin-bottom: 16px;
+        padding: 10px 12px;
+        /* Bounded frame with a distinct professional top border accent */
+        border: 1px solid #cbd5e1;
+        border-top: 4px solid #0f172a;
+        border-radius: 4px;
+        background-color: #f1f5f9; /* Reintroduced smooth, premium background tint */
       }
       h1 {
-        margin: 0 0 5px 0;
+        margin: 0 0 4px 0;
         font-size: 24px;
         text-transform: uppercase;
-        letter-spacing: 0.75px;
-        color: #111111;
+        letter-spacing: 1.5px;
+        color: #0f172a;
       }
       .contact-info {
         font-size: 11px;
-        color: #444444;
+        color: #475569;
+        font-weight: 500;
       }
       .contact-info a {
-        color: #444444;
+        color: #2563eb;
         text-decoration: none;
       }
       h2 {
-        font-size: 12.5px;
+        font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        margin: 16px 0 6px 0;
-        padding-bottom: 3px;
-        border-bottom: 1px solid #222222;
-        color: #111111;
+        margin: 10px 0 4px 0;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #cbd5e1;
+        color: #1e293b;
       }
       p {
-        margin: 0 0 6px 0;
+        margin: 0 0 12px 0;
         font-size: 11px;
-        color: #333333;
+        color: #334155;
       }
       .skills-section p {
-        margin-bottom: 5px;
+        margin-bottom: 4px;
       }
       .job-entry {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .job-header {
         display: flex;
         justify-content: space-between;
         font-weight: bold;
         font-size: 11.5px;
-        color: #111111;
+        color: #0f172a;
         margin-bottom: 2px;
+      }
+      .job-header span:first-child {
+        color: #1e293b;
       }
       .job-sub {
         display: flex;
         justify-content: space-between;
         font-style: italic;
         font-size: 10.5px;
-        color: #555555;
-        margin-bottom: 4px;
+        color: #64748b;
+        margin-bottom: 3px;
       }
       ul {
         margin: 0 0 4px 0;
         padding-left: 18px;
       }
       li {
-        margin-bottom: 3px;
+        margin-bottom: 2px;
         font-size: 11px;
-        color: #333333;
+        color: #334155;
       }
       .edu-cert-entry {
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
 
       @page {
         size: letter portrait;
-        margin: 0; /* Let the HTML container handle the padding safely */
+        margin: 0;
       }
       @media print {
         body {
@@ -104,6 +116,12 @@
         .resume-container {
           margin: 0;
           box-shadow: none;
+        }
+        header {
+          /* Enforces background rendering engine execution during PDF conversion */
+          background-color: #f1f5f9 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
       }
     </style>
@@ -116,7 +134,7 @@
         <div class="contact-info">
           Mississauga, ON | 647-641-2967 |
           <a href="mailto:gauri@gattani.ca">gauri@gattani.ca</a> |
-          linkedin.com/in/uigauri
+          <a href="https://linkedin.com/in/uigauri">linkedin.com/in/uigauri</a>
         </div>
       </header>
 
@@ -124,13 +142,14 @@
       <section>
         <h2>Professional Summary</h2>
         <p>
-          Staff Software Engineer and full-stack technical leader with over 14
-          years of experience specializing in highly scalable API design,
-          distributed UI architecture, and engineering governance across
-          enterprise systems. Adept at managing full-lifecycle feature delivery
-          across React and Java ecosystems, executing contract-first development
-          architectures, and defining technical roadmaps that align developer
-          workflows with high-level business goals.
+          Product-focused architect and Group UI Lead with 14+ years of
+          experience driving frontend modernization, platform scalability, and
+          UI governance across 5 engineering teams. My work focuses on
+          redefining the boundary between frontend applications and backend
+          services through contract-first APIs, SDK-driven development,
+          automated mock generation, and scalable testing strategies. I build
+          systems that enable teams to ship independently, safely, and with
+          long-term maintainability at scale.
         </p>
       </section>
 
@@ -202,9 +221,9 @@
           </div>
           <ul>
             <li>
-              Designed and deployed a fault-tolerant public key sharing
-              solution, establishing secure two-legged authentication paradigms
-              to protect critical client data transactions.
+              Designed a fault-tolerant public key sharing solution,
+              establishing secure two-legged authentication paradigms to protect
+              critical client data transactions.
             </li>
           </ul>
         </div>
