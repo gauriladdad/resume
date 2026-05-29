@@ -6,13 +6,13 @@
     <style>
       /* 
            ATS & AI-Friendly Layout Blueprint
-           - Single column layout (never uses tables or side-by-side grids)
-           - Standard font stacks that automated systems recognize instantly
+           - Built-in safe margins to handle "0 inch" or "Custom" browser print overrides.
+           - Single column structure for flawless automated parsing.
         */
       body {
         font-family: Arial, Helvetica, sans-serif;
         color: #222222;
-        line-height: 1.35;
+        line-height: 1.4;
         margin: 0;
         padding: 0;
         background-color: #ffffff;
@@ -21,18 +21,19 @@
         width: 8.5in;
         min-height: 11in;
         margin: 0 auto;
-        padding: 0.45in 0.55in;
+        /* Explicitly enforces elegant spacing even if browser print margins are set to 0 */
+        padding: 0.3in;
         box-sizing: border-box;
       }
       header {
         text-align: center;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
       h1 {
-        margin: 0 0 4px 0;
+        margin: 0 0 5px 0;
         font-size: 24px;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.75px;
         color: #111111;
       }
       .contact-info {
@@ -47,8 +48,8 @@
         font-size: 12.5px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        margin: 12px 0 4px 0;
-        padding-bottom: 2px;
+        margin: 16px 0 6px 0;
+        padding-bottom: 3px;
         border-bottom: 1px solid #222222;
         color: #111111;
       }
@@ -58,10 +59,10 @@
         color: #333333;
       }
       .skills-section p {
-        margin-bottom: 4px;
+        margin-bottom: 5px;
       }
       .job-entry {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
       }
       .job-header {
         display: flex;
@@ -77,24 +78,24 @@
         font-style: italic;
         font-size: 10.5px;
         color: #555555;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
       }
       ul {
         margin: 0 0 4px 0;
         padding-left: 18px;
       }
       li {
-        margin-bottom: 2px;
+        margin-bottom: 3px;
         font-size: 11px;
         color: #333333;
       }
       .edu-cert-entry {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
       }
 
       @page {
         size: letter portrait;
-        margin: 0;
+        margin: 0; /* Let the HTML container handle the padding safely */
       }
       @media print {
         body {
@@ -103,7 +104,6 @@
         .resume-container {
           margin: 0;
           box-shadow: none;
-          padding: 0.45in 0.55in;
         }
       }
     </style>
@@ -313,5 +313,3 @@
     </div>
   </body>
 </html>
-
-```
