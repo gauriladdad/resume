@@ -7,7 +7,7 @@
       /*
            ATS & AI-Friendly Layout Blueprint with Sophisticated Palette
            - Single column structure for flawless automated parsing.
-           - Elegant bounded header structure matching original branding styles.
+           - Bounded header structure matching original branding styles exactly.
         */
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -29,28 +29,27 @@
         box-sizing: border-box;
       }
       header {
-        text-align: center;
-        padding: 10px 12px;
-        /* Bounded frame with a distinct professional top border accent */
-        border: 1px solid #cbd5e1;
-        border-top: 4px solid #0f172a;
-        border-radius: 4px;
-        background-color: #f1f5f9; /* Reintroduced smooth, premium background tint */
+        text-align: right;
+        margin-bottom: 12px;
       }
       h1 {
-        margin: 0 0 4px 0;
+        margin: 0 0 6px 0;
         font-size: 24px;
         text-transform: uppercase;
         letter-spacing: 1.5px;
-        color: #0f172a;
+        color: #000000;
       }
-      .contact-info {
+      .contact-bar {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 6px 12px;
         font-size: 11px;
-        color: #475569;
         font-weight: 500;
+        text-align: right;
+        letter-spacing: 0.5px;
       }
-      .contact-info a {
-        color: #2563eb;
+      .contact-bar a {
+        color: #ffffff;
         text-decoration: none;
       }
       h2 {
@@ -117,9 +116,8 @@
           margin: 0;
           box-shadow: none;
         }
-        header {
-          /* Enforces background rendering engine execution during PDF conversion */
-          background-color: #f1f5f9 !important;
+        .contact-bar {
+          background-color: #000000 !important;
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
         }
@@ -131,7 +129,7 @@
       <!-- HEADER -->
       <header>
         <h1>Gauri Gattani</h1>
-        <div class="contact-info">
+        <div class="contact-bar">
           Mississauga, ON | 647-641-2967 |
           <a href="mailto:gauri@gattani.ca">gauri@gattani.ca</a> |
           <a href="https://linkedin.com/in/uigauri">linkedin.com/in/uigauri</a>
