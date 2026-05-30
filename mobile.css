@@ -1,103 +1,227 @@
-@media (max-width: 640px) {
+/* ==========================================
+   MOBILE LAYOUT
+========================================== */
+
+.mobile-contact-row {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* ==========================================
+     BASE
+  ========================================== */
+
+  body {
+    padding: 12px;
+    overflow: auto;
+  }
+
   .container {
-    margin: 16px;
-    padding: 22px 18px;
-  }
-
-  .badge-row {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: start;
-    gap: 6px 8px;
-  }
-
-  .badge {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-    border-radius: 12px;
-    background: var(--badge-bg);
-    color: var(--badge-text);
-    white-space: nowrap;
-  }
-
-  .header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+    height: auto;
 
-  .contact-info {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  footer .download a {
-    align-self: flex-start;
-  }
-
-  .contact-footer {
-    display: flex;
-    flex-direction: row;
-    /* ⬅️ keep in one line */
-    align-items: center;
-    justify-content: center;
-    /* ⬅️ centered look like screenshot */
-    gap: 10px;
-    flex-wrap: wrap;
-    /* ⬅️ only wrap if truly needed */
-    text-align: center;
-  }
-
-  .contact-footer a,
-  .contact-footer span {
-    font-size: 0.85rem;
-    white-space: nowrap;
-    /* ⬅️ prevents breaking inside item */
-  }
-
-  .footer-meta {
-    margin-top: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .footer-meta a {
-    width: auto;
-  }
-
-  .soft-chips {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .soft-chips span {
-    display: inline-block;
-    text-align: center;
-    padding: 4px 4px;
-    border-radius: 999px;
-    background: var(--chip-bg);
-    border: 1px solid var(--chip-border);
-    font-size: 0.85rem;
+    padding: 20px 16px;
+    border-radius: 18px;
   }
 
   .resume-content {
+    display: flex;
     flex-direction: column;
     gap: 24px;
   }
 
+  /* ==========================================
+     CONTENT ORDER
+  ========================================== */
+
+  .main-content {
+    width: 100%;
+    order: 1;
+  }
+
   .sidebar {
     width: 100%;
-    flex: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 24px;
+    order: 2;
+
+    padding-top: 20px;
+    margin-top: 8px;
+
+    border-top: 1px solid var(--border);
+  }
+
+  /* Hide duplicate contact section from sidebar */
+  .sidebar .section:first-child {
+    display: none;
+  }
+
+  /* ==========================================
+     HEADER
+  ========================================== */
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .main-content .header {
+    margin-bottom: 24px;
+  }
+
+  /* ==========================================
+     MOBILE CONTACT ROW
+  ========================================== */
+
+  .mobile-contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+
+    margin-bottom: 18px;
+
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .mobile-contact-row a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .mobile-contact-row a:hover {
+    color: var(--accent);
+  }
+
+  /* ==========================================
+     CHIPS
+  ========================================== */
+
+  .soft-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .soft-chips span {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+
+  /* ==========================================
+     TYPOGRAPHY
+  ========================================== */
+
+  h2 {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+  }
+
+  p,
+  ul li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* ==========================================
+     SKILLS
+  ========================================== */
+
+  .skill-group {
+    margin-bottom: 16px;
+  }
+
+  .skill-tags {
+    gap: 6px;
+  }
+
+  .skill-tags span {
+    font-size: 0.82rem;
+    padding: 5px 9px;
+  }
+
+  /* ==========================================
+     EXPERIENCE + PROJECTS
+  ========================================== */
+
+  .job,
+  .project-card {
+    padding: 16px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+  }
+
+  .job-title {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .job-meta,
+  .project-meta {
+    font-size: 0.78rem;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    padding-left: 18px;
+  }
+
+  ul li {
     margin-bottom: 8px;
+  }
+
+  /* ==========================================
+     PROJECTS
+  ========================================== */
+
+  .project-card p {
+    margin-bottom: 12px;
+  }
+
+  .project-card a {
+    font-size: 0.85rem;
+  }
+
+  /* ==========================================
+     EDUCATION + CERTIFICATION
+  ========================================== */
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-card {
+    padding: 16px;
+  }
+
+  /* ==========================================
+     FOOTER
+  ========================================== */
+
+  footer {
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .footer-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-meta a {
+    width: 100%;
+    justify-content: center;
   }
 }
