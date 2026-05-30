@@ -1,406 +1,447 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM TOKENS & VARIABLES
+   ========================================================================== */
 :root {
-  --bg: #f5f7fb;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #2563eb;
-  --card-bg: #ffffff;
-  --card-hover-shadow: rgba(0, 0, 0, 0.08);
-  --chip-bg: #f3f4f6;
-  --chip-border: #e5e7eb;
-  --skill-tag-bg: #f1f5f9;
-  --cert-bg: #f9fbff;
-  --job-bg: #fafafa;
-  --badge-bg: #eef3ff;
-  --badge-text: #2b55d6;
+  /* Neutral Palette */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+
+  /* Primary Indigo Accent */
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+
+  /* App Surface Mapping */
+  --bg-app: var(--slate-50);
+  --bg-surface: #ffffff;
+  --text-primary: var(--slate-900);
+  --text-secondary: var(--slate-600);
+  --text-tertiary: var(--slate-400);
+
+  --border-subtle: var(--slate-100);
+  --border-strong: var(--slate-200);
+
+  --brand-primary: var(--indigo-600);
+  --brand-muted: rgba(79, 70, 229, 0.05);
+  --brand-border: rgba(79, 70, 229, 0.12);
+
+  /* Layout Spacing Scale */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-xxl: 3rem; /* 48px */
+
+  /* Structural Details */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-container:
+    0 20px 25px -5px rgba(15, 23, 42, 0.03),
+    0 10px 10px -5px rgba(15, 23, 42, 0.01);
+
+  --radius-interactive: 6px;
+  --radius-card: 12px;
+  --radius-outer: 20px;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111827;
-    --text: #f9fafb;
-    --muted: #9ca3af;
-    --border: #374151;
-    --accent: #60a5fa;
-    --card-bg: #1f2937;
-    --card-hover-shadow: rgba(0, 0, 0, 0.3);
-    --chip-bg: #374151;
-    --chip-border: #4b5563;
-    --skill-tag-bg: #1f2937;
-    --cert-bg: #1f2937;
-    --job-bg: #1f2937;
-    --badge-bg: #1e3a8a;
-    --badge-text: #93c5fd;
+    --bg-app: #090d16;
+    --bg-surface: #111723;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #475569;
+    --border-subtle: #1e293b;
+    --border-strong: #273142;
+
+    --brand-primary: #818cf8;
+    --brand-muted: rgba(129, 140, 248, 0.08);
+    --brand-border: rgba(129, 140, 248, 0.2);
+
+    --shadow-container: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   }
 }
 
-@keyframes fadeInSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* ==========================================================================
+   2. REBOOTS & OVERRIDES
+   ========================================================================== */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
   line-height: 1.6;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: var(--space-xxl) var(--space-md);
 }
 
-.positioning {
-  margin: 4px 0 8px;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
+/* ==========================================================================
+   3. APP CONTAINER & MAIN TWO-COLUMN LAYOUT
+   ========================================================================== */
 .container {
-  max-width: 880px;
-  margin: 48px auto;
-  padding: 32px 28px;
-  background: var(--card-bg);
-  border-radius: 16px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.15s ease,
-    background-color 0.3s ease;
-  animation: fadeInSlideUp 0.6s ease-out forwards;
+  max-width: 1140px;
+  margin: 0 auto;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-outer);
+  box-shadow: var(--shadow-container);
+  padding: var(--space-xxl);
 }
 
-.container:hover {
-  box-shadow: 0 22px 55px var(--card-hover-shadow);
-}
-
-.soft-chips {
+.resume-content {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 10px;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-xxl);
+  align-items: flex-start;
 }
 
-.soft-chips span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  padding: 4px 14px;
-  border-radius: 999px;
-  background: var(--chip-bg);
-  border: 1px solid var(--chip-border);
-  font-size: 0.85rem;
-}
-
-.soft-chips span:hover {
-  background: var(--border);
-  /* subtly darker than chip-bg */
-}
-
-.skill-group {
-  margin-bottom: 14px;
-}
-
-.skill-group h3 {
-  margin: 10px 0 6px;
-  font-size: 0.95rem;
-  color: var(--text);
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.skill-tags span {
-  display: inline-block;
-  padding: 6px 10px;
-  background: var(--skill-tag-bg);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-
+/* ==========================================================================
+   4. GLOBAL TYPOGRAPHY MATRIX
+   ========================================================================== */
 h1 {
-  margin: 0;
-  letter-spacing: 0.2px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: var(--space-xs);
+  color: var(--text-primary);
+}
+
+h2 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
 }
 
 .subtitle {
-  margin-top: 4px;
-  color: var(--muted);
+  font-size: 1.25rem;
   font-weight: 500;
+  color: var(--brand-primary);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.01em;
 }
 
-.certification h2 {
-  margin-bottom: 10px;
+/* ==========================================================================
+   5. SIDEBAR: CONTACT LINKS
+   ========================================================================== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  padding-top: 12px;
 }
 
-.cert-card {
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 10px;
-  background: var(--cert-bg);
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
-.cert-icon {
-  margin-right: 6px;
+.contact-links a,
+.contact-links span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.contact-links a:hover {
+  color: var(--brand-primary);
+}
+
+.contact-links i {
+  color: var(--text-tertiary);
   font-size: 0.9rem;
+  width: 18px;
+  text-align: left;
 }
 
-.cert-meta {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 3px;
+/* ==========================================================================
+   6. SIDEBAR: CLEAN VERTICAL LIST BULLETED SKILLS (EACH ON A NEW LINE)
+   ========================================================================== */
+.skill-group {
+  margin-bottom: var(--space-md);
 }
 
-.section {
-  margin-top: 30px;
-  opacity: 0;
-  animation: fadeInSlideUp 0.6s ease-out forwards;
-}
-
-.section:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.section:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.section:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.section:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.section:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.section h2 {
-  margin-bottom: 14px;
-  padding-bottom: 4px;
-  border-bottom: 2px solid var(--border);
-}
-
-.job {
-  padding: 14px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  margin-bottom: 14px;
-  background: var(--job-bg);
-}
-
-.job-title {
+.skill-group h3 {
+  font-size: 0.95rem;
   font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+/* Vertical column layout layout engine */
+.skill-tags {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+/* Transforms spans into standard clean vertical list fragments */
+.skill-tags span {
+  display: block !important;
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 0 0 14px !important; /* Makes room for the absolute bullet */
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  position: relative !important;
+  transition: color var(--transition-fast);
+}
+
+/* Minimalist, clean left bullet point */
+.skill-tags span::before {
+  content: "•" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(
+    --brand-primary
+  ) !important; /* Accent matching main bullet style */
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+}
+
+.skill-tags span:hover {
+  color: var(--brand-primary) !important;
+}
+
+/* ==========================================================================
+   7. SIDEBAR: MATCHING EDUCATION & CERTIFICATION TYPOGRAPHY STYLE
+   ========================================================================== */
+.cert-card {
+  display: block !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin-bottom: var(--space-md) !important;
+  box-shadow: none !important;
+}
+
+/* Clean structural deletion of the generic badge block */
+.cert-icon,
+.cert-card span:first-of-type {
+  display: none !important;
+}
+
+/* Match layout layout architecture of 'BE Computer Science' */
+.cert-card strong,
+.sidebar p strong {
+  display: block !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.4 !important;
+  margin-bottom: 2px !important;
+}
+
+/* Match layout layout architecture of 'M.E.S College of Engineering, Pune' */
+.cert-meta,
+.sidebar p {
+  display: block !important;
+  font-size: 0.9rem !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.4 !important;
+  margin-bottom: 2px !important;
+}
+
+.muted {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   8. MAIN CONTENT HEADER & TECH STACK CHIPS
+   ========================================================================== */
+.main-content .header {
+  margin-bottom: var(--space-xl);
+}
+
+.soft-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.soft-chips span {
+  font-size: 0.775rem;
+  font-weight: 600;
+  background-color: var(--brand-muted);
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-border);
+  padding: 4px 10px;
+  border-radius: var(--radius-interactive);
+}
+
+/* ==========================================================================
+   9. MAIN CONTENT TIMELINE / EXPERIENCE HOVER CARDS
+   ========================================================================== */
+.job,
+.project-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.job:hover,
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand-border);
+  box-shadow: var(--shadow-container);
+}
+
+/* Experience Layout Blocks */
+.job-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
 }
 
 .job-meta {
-  color: var(--muted);
-  font-size: 0.87rem;
-  margin-bottom: 6px;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
 }
 
 ul {
-  padding-left: 18px;
+  list-style: none;
 }
 
-footer {
-  margin-top: 48px;
-  padding-top: 10px;
+ul li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
-/* remove wrapper background entirely */
-footer .wrapper {
-  padding: 12px 0;
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--brand-primary);
 }
 
-.contact-footer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px 22px;
-  padding: 12px 0 14px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.contact-footer a,
-.contact-footer span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.contact-footer a:hover {
-  text-decoration: underline;
-}
-
-.contact-footer i {
-  color: var(--muted);
-}
-
-.footer-meta {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.footer-meta a {
-  background: var(--chip-bg);
-  border: 1px solid var(--chip-border);
-  padding: 6px 10px;
-  border-radius: 8px;
-  color: var(--text);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.footer-meta a:hover {
-  background: var(--border);
-}
-
-.project-card {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 14px;
-  margin-bottom: 12px;
-  background: var(--job-bg);
-}
-
+/* Projects Layout Framework */
 .project-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin: 3px 0 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--brand-primary);
+  margin: var(--space-xs) 0 var(--space-md);
 }
 
 .project-card a {
-  font-size: 0.9rem;
-  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-primary);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .project-card a:hover {
   text-decoration: underline;
 }
 
-/* Sidebar Layout */
-.resume-content {
+/* ==========================================================================
+   10. SYSTEM FOOTER
+   ========================================================================== */
+footer {
+  margin-top: var(--space-xxl);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-lg);
+}
+
+.footer-meta {
   display: flex;
-  gap: 48px;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
 }
 
-.sidebar {
-  flex: 0 0 260px;
-  /* Fixed width sidebar */
-  font-size: 0.9rem;
-}
-
-.main-content {
-  flex: 1;
-  min-width: 0;
-  /* Prevent flex overflow */
-}
-
-/* Sidebar Specifics */
-.contact-section {
-  margin-bottom: 32px;
-}
-
-.contact-section h3 {
-  margin-top: 0;
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  color: var(--text);
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 8px;
-}
-
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.contact-links a,
-.contact-links span {
+.download-button {
+  background-color: var(--text-primary);
+  color: var(--bg-surface) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-interactive);
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.9rem;
+  gap: var(--space-sm);
+  transition: var(--transition-fast);
 }
 
-.contact-links a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.contact-links i {
-  color: var(--muted);
-  width: 16px;
-  text-align: center;
-}
-
-/* Adjust Section Headers in Sidebar */
-.sidebar .section {
-  margin-top: 32px;
-}
-
-.sidebar h2 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-}
-
-.sidebar .skill-group h3 {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-/* Main Content Adjustments */
-.main-content .header {
-  margin-bottom: 32px;
-}
-
-.main-content .section:first-child {
-  margin-top: 0;
+.download-button:hover {
+  background-color: var(--brand-primary);
+  transform: translateY(-1px);
 }
